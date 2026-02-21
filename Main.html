@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hauptseite</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="main">
+  <audio id="bgm" src="sakura.mp3" loop autoplay></audio>
+
+  <div class="center">
+    <h1>✨ Willkommen ✨</h1>
+    <button onclick="location.href='love.html'">Warum ich dich so liebe</button>
+    <button onclick="location.href='appreciate.html'">Warum ich dich so schätze</button>
+    <button onclick="location.href='everything.html'">Warum du mein alles bist</button>
+  </div>
+
+  <div id="petals"></div>
+
+  <script>
+    const petals = document.getElementById("petals");
+    for (let i = 0; i < 40; i++) {
+      let p = document.createElement("div");
+      p.className = "petal";
+
+      // Random horizontal position
+      p.style.left = Math.random() * 100 + "%";
+
+      // Random size
+      let size = 8 + Math.random() * 10; // 8px to 18px
+      p.style.width = size + "px";
+      p.style.height = size + "px";
+
+      // Random animation duration for fall
+      let fallDuration = 5 + Math.random() * 5; // 5s to 10s
+      p.style.animation = `fall ${fallDuration}s linear infinite, spin ${3 + Math.random()*3}s linear infinite`;
+
+      petals.appendChild(p);
+    }
+  </script>
+</body>
+</html>
